@@ -77,57 +77,6 @@ Data is taken from a variety of sources in different formats and the unified on 
 
 Docs generated with assistance of [python notebook](GenerateDocs.ipynb): 
 
-* For postgres data types and non numeric columns:
-
-For all data types in postgres itself, I copied my view into a table and ran the following query. 
-* select column_name, data_type from information_schema.columns where table_name = 'master_table';
-
-
-~~~
-   column_name   |    data_type
------------------+------------------
- country         | text
- gini_disp       | double precision
- gini_disp_se    | double precision
- gini_mkt        | double precision
- gini_mkt_se     | double precision
- g_id            | text
- corruptionSE    | double precision
- ruleOfLawSE     | double precision
- voice           | double precision
- regQual         | double precision
- govEffect       | double precision
- govEffectSE     | double precision
- stabilitySE     | double precision
- voiceSE         | double precision
- corruption      | double precision
- stability       | double precision
- regQualSE       | double precision
- ruleOfLaw       | double precision
- INCOMEPC_growth | double precision
- INCOMEPC        | double precision
- trade           | double precision
- industrial      | double precision
- manu            | double precision
- agri            | double precision
- urban           | double precision
- wb_id           | text
- HDI             | double precision
- EDU_IDX         | double precision
- Income_Index    | double precision
- life            | double precision
- un_id           | text
- kaopen          | double precision
- polity2         | double precision
- misc_id         | text
- code            | text
- year            | bigint
- id              | text
-~~~
-
-
-The only real discrepencies between this and the original table is that year is a bigint and the various ids are saved as text. 
-
 ### Selecting an appropriate time frame
 
 We are primarily concerned with inequality, and we want contiguous data. Holes are okay, but we do not want to include, say, year 1965 if there is data for 3 countries in it - it is not statistically sound. So to appropriately pick a solid baseline range, I used seaborn and pandas to visualize data availability in [InequalitySelectingFrame](InequalitySelectingFrame.ipynb)
@@ -171,24 +120,4 @@ We want to see what affects inequality, and how inequalityinteracts with other e
 
 
 [Link to analysis script](Analysis.ipynb)
-
-We have headers in [Analysis](Analysis.ipynb) saying where requirements are met, but I have also labeled them here (since I cannot link to a line in a notebook). Cells are numbered in order ran (there is a number to the left of them)
-
-* A view: cell 2
-
-* CTE: cell 8
-
-## 5. Research
-
-I use 2 technologies
-
-* [Seaborn](https://seaborn.pydata.org/)
-	* This was used to be able to visualize availability of inequality data
-	* Used in [InequalitySelectingFrame](InequalitySelectingFrame.ipynb)
-	* See image of data availabilityl above
-
-* [linearmodels](https://pypi.org/project/linearmodels/)
-	* Used to run various regressions with different parameters and different types as well (such as Panel regression)
-	* Used in [Analysis](Analysis.ipynb)
-	* Results and interpretations of regressions are in the [Analysis](Analysis.ipynb) file itself. 
 
