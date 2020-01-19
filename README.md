@@ -1,4 +1,4 @@
-# Data Management and Analysis Project
+# Exploring Inequality - Panel Data Project
 
 ## 1. Documentation
 
