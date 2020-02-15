@@ -80,7 +80,6 @@ Docs generated with assistance of [python notebook](GenerateDocs.ipynb):
 ### Selecting an appropriate time frame
 
 We are primarily concerned with inequality, and we want contiguous data. Holes are okay, but we do not want to include, say, year 1965 if there is data for 3 countries in it - it is not statistically sound. So to appropriately pick a solid baseline range, I used seaborn and pandas to visualize data availability in [InequalitySelectingFrame](InequalitySelectingFrame.ipynb)
-(This is also one of my new technologies used (I mention it again in the section))
 
 While the notebook is commented and contains info, the basics are:
 * See how many countries are available for each year of the data
